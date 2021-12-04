@@ -1,0 +1,13 @@
+<launch>
+    <!--output="screen"-->
+    <node pkg="global_fusion" type="gps_node" name="gps_node">
+        <param name="imu_topic" value="/imu/data" type="string"/>
+        <param name="gps_topic" value="/fix" type="string"/>
+        <param name="use_localmap" value="false" type="bool"/> <!--是否使用点云地图原点 true表示使用-->
+        <!-- /zone/var/map -->
+        <param name="map_path" value="/var/zone/map" type="string"/>
+    </node>
+
+    <node pkg="global_fusion" type="global_fusion_node" name="global_fusion_node" output="screen"/>
+
+</launch>
